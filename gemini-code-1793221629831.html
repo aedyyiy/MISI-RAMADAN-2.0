@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nota Interaktif & Misi Ramadan</title>
+<style>
+:root {
+  --navy: #102b46;
+  --green: #176b53;
+  --gold: #ffd166;
+  --cream: #fff9e9;
+  --purple: #7563c9;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: var(--navy);
+  background: var(--cream);
+}
+button, a { font: inherit; }
+button { cursor: pointer; }
+.hero {
+  color: white;
+  padding: 30px 20px;
+  text-align: center;
+  background: linear-gradient(135deg, #102b46, #176b53);
+  border-radius: 0 0 25px 25px;
+}
+.hero h1 { margin: 10px 0 5px; font-size: 28px; }
+.hero p { margin: 5px 0 15px; font-size: 14px; }
+.btn-main {
+  display: inline-block;
+  padding: 10px 20px;
+  background: var(--gold);
+  color: var(--navy);
+  font-weight: bold;
+  border-radius: 20px;
+  text-decoration: none;
+}
+.container { max-width: 900px; margin: auto; padding: 20px; }
+.mission-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 15px;
+  margin-top: 15px;
+}
+.mission {
+  background: white;
+  border: 2px solid #e3e8d8;
+  border-radius: 18px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+.mission h3 { margin: 10px 0 5px; }
+.mission p { color: #526579; font-size: 13px; margin-bottom: 15px; }
+.btn {
+  border: 0;
+  border-radius: 10px;
+  padding: 10px 15px;
+  font-weight: bold;
+  background: var(--green);
+  color: white;
+  width: 100%;
+}
+.btn.purple { background: var(--purple); }
+.btn.gold { background: var(--gold); color: var(--navy); }
+
+/* PANEL SEKSYEN NOTA, CABARAN & KUIZ */
+.panel {
+  background: white;
+  border: 2px solid #e3e8d8;
+  border-radius: 20px;
+  padding: 20px;
+  margin-top: 25px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+.hidden { display: none !important; }
+
+.card-nota {
+  background: #f0f7f3;
+  border-left: 5px solid var(--green);
+  padding: 15px;
+  border-radius: 8px;
+  margin: 12px 0;
+}
+.card-nota h4 { margin: 0 0 5px; color: var(--green); }
+.card-nota p { margin: 0; font-size: 14px; line-height: 1.5; }
+
+.question {
+  border: 1px solid #e1e6dc;
+  border-radius: 12px;
+  padding: 15px;
+  margin: 12px 0;
+}
+.question h4 { margin: 0 0 10px; }
+.choice {
+  display: block;
+  width: 100%;
+  text-align: left;
+  margin: 6px 0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background: #fff;
+  border-radius: 8px;
+}
+.choice.correct { background: #d9f5df; border-color: #21864d; font-weight: bold; }
+.choice.wrong { background: #ffe5df; border-color: #cb5545; }
+.feedback { font-weight: bold; margin-top: 8px; font-size: 14px; }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <h1>🌙 MISI RAMADAN</h1>
+  <p>Nota Interaktif & Modul Pembelajaran Pendidikan Islam Tahun 4</p>
+  <a href="https://aedyyiy.github.io/MISI-RAMADAN/" target="_blank" class="btn-main">
+    🚀 Main Game Utama
+  </a>
+</header>
+
+<main class="container">
+
+  <h2>🧭 Pilih Modul Pembelajaran</h2>
+  <p>Tekan butang di bawah untuk membuka kandungan nota, cabaran, atau kuiz:</p>
+
+  <div class="mission-grid">
+    <div class="mission">
+      <div style="font-size:35px;">📖</div>
+      <h3>Nota Interaktif</h3>
+      <p>Ketahui maksud, hukum, dan hikmah puasa.</p>
+      <button class="btn" onclick="openModule('modul-nota')">Buka Nota</button>
+    </div>
+
+    <div class="mission">
+      <div style="font-size:35px;">⚡</div>
+      <h3>Cabaran Ramadan</h3>
+      <p>Pilih tindakan terbaik bagi situasi harian.</p>
+      <button class="btn purple" onclick="openModule('modul-cabaran')">Terima Cabaran</button>
+    </div>
+
+    <div class="mission">
+      <div style="font-size:35px;">🎯</div>
+      <h3>Kuiz Penamat</h3>
+      <p>Uji kefahaman anda selepas membaca nota.</p>
+      <button class="btn gold" onclick="openModule('modul-kuiz')">Mula Kuiz</button>
+    </div>
+  </div>
+
+  <!-- SEKSYEN 1: NOTA INTERAKTIF -->
+  <section id="modul-nota" class="panel hidden">
+    <h2>📖 Nota Interaktif Ilmu Ramadan</h2>
+    
+    <div class="card-nota">
+      <h4>💡 1. Pengertian Puasa</h4>
+      <p>Menahan diri daripada perkara yang membatalkan puasa bermula dari terbit fajar sadiq hingga terbenam matahari, berserta niat.</p>
+    </div>
+
+    <div class="card-nota">
+      <h4>⚖️ 2. Hukum Berpuasa</h4>
+      <p><strong>Wajib 'Ain</strong> ke atas setiap individu Muslim yang baligh, berakal, dan sihat sepanjang bulan Ramadan.</p>
+    </div>
+
+    <div class="card-nota">
+      <h4>🌟 3. Hikmah Berpuasa</h4>
+      <p>Mendidik jiwa menjadi bertaqwa, melatih kesabaran diri, serta memupuk rasa empati kepada orang miskin.</p>
+    </div>
+
+    <div class="card-nota">
+      <h4>🤝 4. Amalan Mulia</h4>
+      <p>Membaca Al-Quran, bersedekah, melupakan pergaduhan, serta menyegerakan berbuka puasa.</p>
+    </div>
+  </section>
+
+  <!-- SEKSYEN 2: CABARAN -->
+  <section id="modul-cabaran" class="panel hidden">
+    <h2>⚡ Cabaran Ramadan</h2>
+
+    <div class="question" data-ans="1">
+      <h4>Cabaran 1: Rakan terlupa membawa makanan untuk berbuka. Apa tindakan anda?</h4>
+      <button class="choice" onclick="checkAnswer(this, 0)">A. Biarkan sahaja</button>
+      <button class="choice" onclick="checkAnswer(this, 1)">B. Berkongsi makanan jika mampu</button>
+      <button class="choice" onclick="checkAnswer(this, 2)">C. Mengejek rakan</button>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="question" data-ans="2">
+      <h4>Cabaran 2: Ada rakan mengajak anda bergaduh semasa berpuasa.</h4>
+      <button class="choice" onclick="checkAnswer(this, 0)">A. Balas semula</button>
+      <button class="choice" onclick="checkAnswer(this, 1)">B. Panggil kawan lain pukul</button>
+      <button class="choice" onclick="checkAnswer(this, 2)">C. Bertenang dan mengelak pergaduhan</button>
+      <div class="feedback"></div>
+    </div>
+  </section>
+
+  <!-- SEKSYEN 3: KUIZ -->
+  <section id="modul-kuiz" class="panel hidden">
+    <h2>🎯 Kuiz Penamat</h2>
+
+    <div class="question" data-ans="1">
+      <h4>1. Apakah hukum puasa Ramadan?</h4>
+      <button class="choice" onclick="checkAnswer(this, 0)">A. Sunat</button>
+      <button class="choice" onclick="checkAnswer(this, 1)">B. Wajib</button>
+      <button class="choice" onclick="checkAnswer(this, 2)">C. Harus</button>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="question" data-ans="2">
+      <h4>2. Bilakah waktu bermula dan berakhir puasa?</h4>
+      <button class="choice" onclick="checkAnswer(this, 0)">A. Tengah malam hingga tengah hari</button>
+      <button class="choice" onclick="checkAnswer(this, 1)">B. Terbenam matahari hingga terbit fajar</button>
+      <button class="choice" onclick="checkAnswer(this, 2)">C. Terbit fajar hingga terbenam matahari</button>
+      <div class="feedback"></div>
+    </div>
+  </section>
+
+</main>
+
+<script>
+function openModule(id) {
+  // Sembunyikan semua modul dulu
+  document.querySelectorAll('.panel').forEach(el => el.classList.add('hidden'));
+  
+  // Tunjukkan modul yang dipilih
+  const selected = document.getElementById(id);
+  if (selected) {
+    selected.classList.remove('hidden');
+    selected.scrollIntoView({ behavior: 'smooth' });
+  }
+}
+
+function checkAnswer(btn, index) {
+  const q = btn.closest('.question');
+  const correct = parseInt(q.dataset.ans);
+  const feedback = q.querySelector('.feedback');
+  
+  q.querySelectorAll('.choice').forEach(b => b.disabled = true);
+
+  if (index === correct) {
+    btn.classList.add('correct');
+    feedback.textContent = '✅ Betul!';
+    feedback.style.color = 'green';
+  } else {
+    btn.classList.add('wrong');
+    feedback.textContent = '💡 Belum tepat.';
+    feedback.style.color = 'red';
+  }
+}
+</script>
+
+</body>
+</html>
